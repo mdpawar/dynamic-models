@@ -26,7 +26,16 @@ items[2].style.backgroundColor = "green";
 for(i=0; i<items.length;i++){
   items[i].style.fontWeight='bold';
 }
-var item1 = document.getElementsByTagName('h2');
-console.log(item1);
-item1[0].style.fontWeight = 'bold';
-item1[0].style.color='green';
+// getElementsByTagname
+// var item1 = document.getElementsByTagName('h2');
+// console.log(item1);
+// item1[0].style.fontWeight = 'bold';
+// item1[0].style.color='green';
+var li = document.getElementsByTagName('li');
+console.log(li);
+// li[0].style.fontWeight = 'bold';
+li[0].style.color='green';
+for(i=0; i<li.length;i++){
+  li[i].style.fontWeight='bold';
+  li[i].style.backgroundColor='grey';
+}
