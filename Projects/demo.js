@@ -26,6 +26,7 @@ items[2].style.backgroundColor = "green";
 for(i=0; i<items.length;i++){
   items[i].style.fontWeight='bold';
 }
+// getElementsByTagname
 var item1 = document.getElementsByTagName('h2');
 console.log(item1);
 item1[0].style.fontWeight = 'bold';
