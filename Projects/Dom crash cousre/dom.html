@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Local Storage in objct form</h1>
+</body>
+<script type="text/javascript">
+  let myobj = {
+    name: 'John',
+    age: 36
+  };
+
+  let myobj_serialised = JSON.stringify(myobj);
+  localStorage.setItem('myobj', myobj_serialised);
+
+  myobj_deserialised = JSON.parse(localStorage.getItem('myobj'));
+
+
+</script>
+</html>
