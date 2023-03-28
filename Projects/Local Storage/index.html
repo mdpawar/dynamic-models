@@ -9,15 +9,15 @@
 <body>
     <form onsubmit="saveTolocalStorage(event)">
     <label>Name</label>
-    <input type="text", class="form-control mr-2", id="name">
+    <input type="text", name="name">
     <label>Email</label>
-    <input type="email", class="form-control mr-2", id="emailId">
+    <input type="email", name="emailId">
     <label>Phone Number</label>
-    <input type="tel", class="form-control mr-2", id="phoneNumber">
+    <input type="tel", name="phoneNumber">
     <button>Submit</button>
     </form>
-    <ul id="listOfItems"></ul>
-    <script>
+<ul id="listOfItems"></ul>
+  <script>
       function saveToLocalStorage(event) {
         event.preventDefault();
         const name = event.target.name.value;
@@ -30,8 +30,7 @@
           phone
         }
 
-        obj_serialised = JSON.stringify(obj);
-        localStorage.setItem(obj.email, obj_serialised);
+        localStorage.setItem(obj.email,JSON.stringify(obj));
         showUserOnScreen(obj);
       }
 
@@ -39,9 +38,16 @@
         const parentEle = document.getElementById('listOfItems');
         const childEle = document.createElement('li');
         childEle.textContent = obj.name+ '-'+ obj.email+ '-'+ obj.phone
-        parentEle.appendChild(childEle);
 
-        
+        const deleteButton = document.createElement('input')
+        deleteButton.type = 'button'
+        deleteButton.value = 'Delete'
+        deleteButton.onclick = () => {
+          localStorage.removeItem(obj.email)
+          parentEle.removeChild(childEle)
+        }
+        childEle.appendChild(deleteButton)
+        parentEle.appendChild(childEle);
       }
 
     </script>
