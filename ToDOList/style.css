@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+}
+
+#add-todo {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#todo-input {
+    flex-grow: 1;
+    padding: 5px;
+}
+
+#add-button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#todo-list {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+#todo-list .todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+#done-list {
+    margin-top: 20px;
+}
+
+#done-list h2 {
+    font-size: 16px;
+    color: #555;
+}
+
+#done-list .done-item {
+    margin-bottom: 5px;
+    color: green;
+}
+
+button.done-button, button.delete-button {
+    padding: 2px 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+button.done-button {
+    background-color: green;
+    color: #fff;
+}
+
+button.delete-button {
+    background-color: red;
+    color: #fff;
+}
