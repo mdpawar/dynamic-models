@@ -1,4 +1,4 @@
-// script.js
+console.log(apiUrl);
 const apiUrl = 'https://crudcrud.com/api/2e99403653934fddb0659a79f169dbb4/todos';
 
 
