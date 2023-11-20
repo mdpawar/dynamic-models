@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-    <form onsubmit="saveTolocalStorage(event)">
+    <form onsubmit="saveToCrudCrud(event)">
     <label>Name</label>
     <input type="text", name="name", id="nameInputTag"/>
     <label>Email</label>
@@ -17,8 +17,9 @@
     <button>Submit</button>
     </form>
 <ul id="listOfItems"></ul>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
   <script>
-      function saveToLocalStorage(event) {
+      function saveToCrudCrud(event) {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.emailId.value;
@@ -30,8 +31,15 @@
           phone
         }
 
-        localStorage.setItem(obj.email,JSON.stringify(obj));
-        showUserOnScreen(obj);
+        axios.post("https://crudcrud.com/api/bb5dc569666a40099850d6bc78a5c745/appointmentData", obj)
+          .then((response)=> {
+            showUserOnScreen(response.data)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+        // localStorage.setItem(obj.email,JSON.stringify(obj));
+        // showUserOnScreen(obj);
       }
 
       function showUserOnScreen(obj) {
@@ -43,8 +51,12 @@
         deleteButton.type = 'button'
         deleteButton.value = 'Delete'
         deleteButton.onclick = () => {
-          localStorage.removeItem(obj.email)
-          parentEle.removeChild(childEle)
+          // localStorage.removeItem(obj.email)
+          axios.delete("https://crudcrud.com/api/bb5dc569666a40099850d6bc78a5c745/appointmentData/${userID}")
+            .then(() => {
+              obj.remove()
+            })
+          // parentEle.removeChild(childEle)
         }
 
         const editButton = document.createElement('input')
